@@ -1,0 +1,13 @@
+body {
+    background-color: #fee6bd;
+}
+
+#navbar {
+    background-color: #71a3c1;
+    margin: 0;
+}
+
+#footer {
+    border-top: 1px solid #aaaaaa;
+    text-align: center;
+}

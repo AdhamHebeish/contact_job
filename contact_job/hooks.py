@@ -1,7 +1,7 @@
 app_name = "contact_job"
 app_title = "Contact Job"
 app_publisher = "Adham_Hebeish"
-app_description = "Sharing Proffesional Contact Information"
+app_description = "Sharing Professional Contact Information"
 app_email = "app.email@contactjob.co"
 app_license = "mit"
 
@@ -29,8 +29,8 @@ app_license = "mit"
 # app_include_js = "/assets/contact_job/js/contact_job.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/contact_job/css/contact_job.css"
-# web_include_js = "/assets/contact_job/js/contact_job.js"
+web_include_css = "/static/css/base.css"
+web_include_js = "/static/js/base.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "contact_job/public/scss/website"
@@ -57,7 +57,8 @@ app_license = "mit"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "home"
+base_template = "contact_job/templates/base.html"
 
 # website user home page (by Role)
 # role_home_page = {

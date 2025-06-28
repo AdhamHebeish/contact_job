@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="generator" content="frappe">
+        {% block meta_block %}
+        {% include "templates/includes/meta_block.html" %}
+        {% endblock %}
+        <title>Contact Job | {% block title %}{{ title }}{% endblock %}</title>
+        {% block favicon %}
+        <link rel="icon" href="/static/images/favicon.svg" type="image/svg">
+        {% endblock %}
+        {%- block head -%}
+        {% include "templates/includes/head.html" %}
+        {%- endblock -%}
+        {%- block style %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        {% if colocated_css -%}
+        <style>
+            {{colocated_css}}
+        </style>
+        {%- endif %}
+        {%- endblock -%}
+        {% if boot.lang == "eo" %}
+	        <script type="text/javascript">
+		        var _jipt = [];
+        		_jipt.push(['project', 'frappe']);
+        	</script>
+        	<script type="text/javascript" src="https://cdn.crowdin.com/jipt/jipt.js"></script>
+	    {% endif %}
+        <script>
+            window.frappe = {};
+            frappe.ready_events = [];
+            frappe.ready = function (fn) {
+                frappe.ready_events.push(fn);
+            }
+            window.dev_server = {{ dev_server }};
+            window.socketio_port = {{ (frappe.socketio_port or 9000) }};
+            window.show_language_picker = {{ show_language_picker or 'false' }};
+        </script>
+    </head>
+    <body>
+        {%- block navbar -%}
+		    {{ web_block(navbar_template or 'Standard Navbar') }}
+	    {%- endblock -%}
+        <div class="content p-6 d-flex flex-column justify-content-center align-items-center">
+            {% block content %}
+            {{ content }}
+            {% endblock %}
+        </div>
+        {%- block footer -%}
+		    {{ web_block(footer_template or 'Standard Footer') }}
+	    {%- endblock -%}
+        {%- block script %}
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            {% if colocated_js -%}
+                <script>{{ colocated_js }}</script>
+            {%- endif %}
+        {%- endblock %}
+        {% block base_scripts %}
+        <script>
+            frappe.boot = {{ boot }}
+            frappe.sys_defaults = frappe.boot.sysdefaults;
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {{ include_script('frappe-web.bundle.js') }}
+        {% endblock %}
+        {%- for link in web_include_js %}
+            {{ include_script(link) }}
+        {%- endfor -%}
+    </body>
+</html>

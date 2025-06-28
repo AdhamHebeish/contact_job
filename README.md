@@ -1,6 +1,6 @@
 ### Contact Job
 
-Sharing Proffesional Contact Information
+Sharing Professional Contact Information
 
 ### Installation
 
