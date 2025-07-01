@@ -1,0 +1,156 @@
+{% extends base_template_path %}
+{% block content %}
+<div id="view" class="container m-0">
+    <h5 class="m-0 p-2 text-center">Filters</h5>
+    <div class="row">
+        <div class="col">
+            <p class="m-0 p-2">Industry</p>
+            <select class="custom-select" v-model="industry">
+                <option value="Any">Any</option>
+                <option value="Procurement">Procurement</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Pharmaceutical">Pharmaceutical</option>
+                <option value="Education">Education</option>
+                <option value="Services">Services</option>
+                <option value="Industry">Industry</option>
+                <option value="Retail">Retail</option>
+                <option value="Infrastructure">Infrastructure</option>
+                <option value="Governmental">Governmental</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Telecommunications">Telecommunications</option>
+                <option value="Military">Military</option>
+                <option value="R&D">R&D</option>
+                <option value="Finance">Finance</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Security">Security</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Transport">Transport</option>
+                <option value="Insurance">Insurance</option>
+                <option value="Advertising">Advertising</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="col">
+            <p class="m-0 p-2">Employed</p>
+            <select class="custom-select" v-model="employed">
+                <option value="Any">Any</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        <div class="col">
+            <p class="m-0 p-2">Looking for Jobs</p>
+            <select class="custom-select" v-model="looking">
+                <option value="Any">Any</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+    </div>
+    <div v-for="p in contacts">
+        <div v-if="(industry == 'Any' || industry == p.industry) && (employed == 'Any' || employed == p.employed) && (looking == 'Any' || looking == p.looking)" class="border-top border-bottom p-2">
+            <div class="row">
+                <div class="col-10 my-auto">
+                    <h4 class="m-0">[[ p.title ]] <span v-if="p.new" class="badge rounded-pill bg-secondary">New</span></h4>
+                </div>
+                <div class="col-2 text-center my-auto">
+                    <button class="btn btn-secondary" v-if="p.min == true" @click="p.min = !p.min">See More</button>
+                    <button class="btn btn-secondary" v-else="p.min == false" @click="p.min = !p.min">See Less</button>
+                </div>
+            </div>
+            <div v-show="!p.min">
+                <h5 class="m-0">Basic Info</h5>
+                <div v-if="p.mname" class="row">
+                    <div class="col-4">
+                        <p class="m-0">First Name</p>
+                        <p class="form-control">[[ p.fname ]]</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Middle Name</p>
+                        <p class="form-control">[[ p.mname ]]</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Last Name</p>
+                        <p class="form-control">[[ p.lname ]]</p>
+                    </div>
+                </div>
+                <div v-else class="row">
+                    <div class="col-6">
+                        <p class="m-0">First Name</p>
+                        <p class="form-control">[[ p.fname ]]</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">Last Name</p>
+                        <p class="form-control">[[ p.lname ]]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="m-0">Address</p>
+                        <p v-if="p.address" class="form-control">[[ p.address ]]</p>
+                        <p v-else class="form-control">N/A</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="m-0">Salutation</p>
+                        <p class="form-control">[[ p.salute ]]</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Designation</p>
+                        <p v-if="p.design" class="form-control">[[ p.design ]]</p>
+                        <p v-else class="form-control">N/A</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Gender</p>
+                        <p class="form-control">[[ p.gender ]]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="m-0">Email</p>
+                        <p v-if="p.mail" class="form-control">[[ p.mail ]]</p>
+                        <p v-else class="form-control">N/A</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">Mobile Number</p>
+                        <p v-if="p.mobile" class="form-control">[[ p.mobile ]]</p>
+                        <p v-else class="form-control">N/A</p>
+                    </div>
+                </div>
+                <h5 class="m-0">Professional Info</h5>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="m-0">Company</p>
+                        <p v-if="p.company" class="form-control">[[ p.company ]]</p>
+                        <p v-else class="form-control">N/A</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Job Title</p>
+                        <p class="form-control">[[ p.job ]]</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Industry</p>
+                        <p class="form-control">[[ p.industry ]]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <p class="m-0">Experience (Years)</p>
+                        <p class="form-control">[[ p.exp ]]</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="m-0">Degree</p>
+                        <p class="form-control">[[ p.degree ]]</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="m-2">Empolyed <span class="badge rounded-pill bg-success" v-if="p.employed">Yes</span><span v-else class="badge rounded-pill bg-danger">No</span></p>
+                        <p class="m-2">Looking for Jobs <span class="badge rounded-pill bg-success" v-if="p.looking">Yes</span><span v-else class="badge rounded-pill bg-danger">No</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

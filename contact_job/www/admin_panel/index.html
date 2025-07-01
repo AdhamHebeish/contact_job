@@ -1,0 +1,41 @@
+{% extends base_template_path %}
+{% block content %}
+<div id="panel" class="container mt-10">
+    <div class="row">
+        <div class="col-4 rounded bg-1 p-4">
+            <h3 class="hxfff m-0 mt-10">View Contacts</h3>
+            <div class="btn-group m-2">
+                <button class="btn btn-light" type="button">
+                <a href="/view_contacts">View</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4 p-4 d-flex align-items-start">
+            <h5 class="m-2">View All Contacts: Filtered or Not</h5>
+        </div>
+        <div class="col-4 rounded bg-2 p-4">
+            <h3 class="hxfff m-0 mt-10">Frappe Desk</h3>
+            <div class="btn-group m-2">
+                <button class="btn btn-light" type="button">
+                <a href="/login">Go</a>
+                </button>
+            </div>
+        </div>
+        <div class="col-4 p-4 d-flex align-items-end">
+            <h5 class="m-2">View All Admin Applications & Accept them or Reject Them</h5>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-4 offset-8 rounded bg-3 p-4">
+            <h3 class="hxfff m-0 mt-10">View Admin Applications</h3>
+            <div class="btn-group m-2">
+                <button class="btn btn-light" type="button">
+                <a href="/view_apply">View</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

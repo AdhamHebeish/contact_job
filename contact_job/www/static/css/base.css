@@ -1,0 +1,35 @@
+body {
+    background-color: #fee6bd;
+}
+
+#navbar {
+    background-color: #71a3c1;
+}
+
+#footer {
+    border-top: 1px solid #aaaaaa;
+}
+
+.hxfff{
+    color: #ffffff;
+}
+
+.bg-1 {
+    background-color: #0accad;
+    color: #ffffff;
+}
+
+.bg-2 {
+    background-color: #be95be;
+    color: #ffffff;
+}
+
+.bg-3 {
+    background-color: #80aaff;
+    color: #ffffff;
+}
+
+.success {
+    background-color: #38d638;
+    color: #ffffff;
+}

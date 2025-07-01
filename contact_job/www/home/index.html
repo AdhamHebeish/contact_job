@@ -1,0 +1,39 @@
+{% extends base_template_path %}
+{% block content %}
+<div class="container" id="home">
+    <div class="row my-20">
+        <div class="col-4 offset-1 rounded bg-1 p-4">
+            <h3 class="hxfff m-0 pt-20">Add your Professional Contact</h3>
+            <p class="m-0">Looking for a job?</p>
+            <p class="m-0">Add your Contact now!</p>
+            <div class="btn-group mt-2 ml-2">
+                <button class="btn btn-light" type="button">
+                <a href="/new_contact">Add</a>
+                </button>
+            </div>
+        </div>
+        <div class="col-4 offset-2 rounded bg-2 p-4">
+            <h3 class="hxfff m-0 pt-20">Apply to View, Manage and Hire</h3>
+            <p class="m-0">Looking for employees?</p>
+            <p class="m-0">Apply to our company's plan!</p>
+            <div class="btn-group mt-2 ml-2">
+                <button class="btn btn-light" type="button">
+                <a href="/apply">Apply</a>
+                </button>
+            </div>
+        </div>   
+    </div>
+    <div class="row my-20">
+        <div class="col-4 offset-4 rounded bg-3 p-4">
+            <h3 class="hxfff m-0 pt-20">Open Admin Panel</h3>
+            <p class="m-0">View all Contacts</p>
+            <p class="m-0">Hire, View & Manage!</p>
+            <div class="btn-group mt-2 ml-2">
+                <button class="btn btn-light" type="button">
+                <a href="/verify">Open</a>
+                </button>
+            </div>
+        </div> 
+    </div>
+</div>
+{% endblock %}
