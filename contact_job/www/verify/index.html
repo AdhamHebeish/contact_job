@@ -1,0 +1,26 @@
+{% extends base_template_path %}
+{% block content %}
+<div class="container">
+    <div class="row my-20">
+        <div id="login" class="col-6 offset-3 rounded p-6 text-center">
+            <h4 class="m-0">Login</h4>
+            <form class="m-4" @submit.prevent="login">
+                <div class="form-group row m-0">
+                    <p class="col-2">Email</p>
+                    <div class="col-10">
+                        <input class="form-control" type="email" v-model="email" placeholder="Please enter e-mail" />
+                    </div>
+                </div>
+                <div class="form-group row m-0">
+                    <p class="col-2">Password</p>
+                    <div class="col-10">
+                        <input class="form-control" type="password" v-model="password" placeholder="Please enter password" />
+                    </div>
+                </div>
+                <p id="errtext" class="m-0" v-if="errtext != ''">{{ errtext }}</p>
+                <button class="btn btn-primary mt-4" type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

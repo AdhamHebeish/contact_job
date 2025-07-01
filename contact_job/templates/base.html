@@ -52,12 +52,6 @@
         {%- block footer -%}
 		    {{ web_block(footer_template or 'Standard Footer') }}
 	    {%- endblock -%}
-        {%- block script %}
-            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-            {% if colocated_js -%}
-                <script>{{ colocated_js }}</script>
-            {%- endif %}
-        {%- endblock %}
         {% block base_scripts %}
         <script>
             frappe.boot = {{ boot }}
@@ -66,6 +60,12 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         {{ include_script('frappe-web.bundle.js') }}
         {% endblock %}
+        {%- block script %}
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            {% if colocated_js -%}
+                <script>{{ colocated_js }}</script>
+            {%- endif %}
+        {%- endblock %}
         {%- for link in web_include_js %}
             {{ include_script(link) }}
         {%- endfor -%}

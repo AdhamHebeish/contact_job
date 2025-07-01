@@ -1,0 +1,44 @@
+{% extends base_template_path %}
+{% block content %}
+<div id="apply" class="container">
+    <div class="row my-20">
+        <div v-if="code != 200" class="col-8 offset-2">
+            <h3 class="m-0 text-center">Apply for Administration</h3>
+            <form class="m-4" @submit.prevent="adminapply">
+                <h5 class="m-0">New Administrator Information</h5>
+                <div class="form-group row m-2">
+                    <div class="col-6">
+                        <p class="m-0">Your Username</p>
+                        <input type="text" class="form-control" v-model="username">
+                    </div>
+                    <div class="col-6">
+                        <p class="m-0">Your Administrator Email</p>
+                        <input type="email" class="form-control" v-model="email">
+                    </div>
+                </div>
+                <h5 class="m-0">Your Company Information</h5>
+                <div class="form-group row m-2">
+                    <div class="col-4">
+                        <p class="m-0">Company Name</p>
+                        <input type="text" class="form-control" v-model="companyname">
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Company Email</p>
+                        <input type="email" class="form-control" v-model="companymail">
+                    </div>
+                    <div class="col-4">
+                        <p class="m-0">Your Job Title</p>
+                        <input type="text" class="form-control" v-model="jobtitle">
+                    </div>
+                </div>
+                <button class="btn btn-primary m-4" type="submit">Apply</button>
+            </form>
+        </div>
+        <div v-if="code == 200" class="col-8 offset-2 rounded p-6 success text-center">
+            <h3 class="hxfff m-4">Success</h3>
+            <p class="m-4">Your Contact has been successfully added!</p>
+            <button class="btn btn-light mx-auto my-2" type="button"><a href="/home">Back to Home</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}
