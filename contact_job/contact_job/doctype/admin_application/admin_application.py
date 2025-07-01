@@ -7,7 +7,4 @@ from contact_job.api.password import update_password
 
 
 class AdminApplication(Document):
-	def before_save(self):
-		if self.new_password != "":
-			self.password = update_password(self.new_password)
-			self.new_password = ""
+    pass
