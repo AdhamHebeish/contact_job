@@ -23,17 +23,17 @@ const view_contact = Vue.createApp({
                     lname: obj.last_name,
                     mail: null,
                     address: null,
-                    salute: obj.salutation,
+                    salute: obj.custom_custom_salutation,
                     design: null,
                     gender: obj.gender,
                     mobile: null,
                     company: null,
-                    job: obj.job_title,
-                    industry: obj.industry,
-                    exp: obj.years_of_experience,
-                    degree: obj.education_level,
-                    employed: Boolean(obj.employed),
-                    looking: Boolean(obj.is_looking_for_job),
+                    job: obj.custom_job_title,
+                    industry: obj.custom_industry,
+                    exp: obj.custom_years_of_experience,
+                    degree: obj.custom_education_level,
+                    employed: Boolean(obj.custom_employed),
+                    looking: Boolean(obj.custom_is_looking_for_job),
                     min: true,
                     new: false
                 }
@@ -41,16 +41,16 @@ const view_contact = Vue.createApp({
                     person.mname = obj.middle_name
                 }
                 if (obj.email) {
-                    person.mail = obj.email
+                    person.mail = obj.custom_email
                 }
                 if (obj.address) {
-                    person.address = obj.address
+                    person.address = obj.custom_custom_address
                 }
                 if (obj.designation) {
                     person.design = obj.designation
                 }
                 if (obj.mobile_no) {
-                    person.mobile = obj.mobile_no
+                    person.mobile = obj.custom_custom_phone
                 }
                 if (obj.company_name) {
                     person.company = obj.company_name
